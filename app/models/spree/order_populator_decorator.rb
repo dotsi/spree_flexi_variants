@@ -15,7 +15,7 @@ module Spree
 
       from_hash[:variants].each do |variant_id, quantity|
         attempt_cart_add( variant_id, 
-                          from_hash[:quantity], 
+                          quantity, 
                           ad_hoc_option_value_ids(from_hash[:ad_hoc_option_values]), 
                           product_customizations(from_hash[:product_customizations])
                          )
@@ -35,7 +35,7 @@ module Spree
       variant = Spree::Variant.find(variant_id)
       if quantity > 0
         if check_stock_levels(variant, quantity)
-          @order.add_variant(variant, quantity, ad_hoc_option_value_ids, product_customizations)
+          @order.add_variant(variant, quantity, currency, ad_hoc_option_value_ids, product_customizations)
         end
       end
     end

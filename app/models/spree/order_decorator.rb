@@ -1,9 +1,10 @@
 module Spree
   Order.class_eval do
-    def add_variant(variant, quantity = 1, ad_hoc_option_value_ids=[], product_customizations=[])
-      current_item = contains?(variant, ad_hoc_option_value_ids, product_customizations)
+    def add_variant(variant, quantity = 1, currency = nil, ad_hoc_option_value_ids=[], product_customizations=[])
+      current_item = find_line_item_by_variant(variant, ad_hoc_option_value_ids, product_customizations)
       if current_item
         current_item.quantity += quantity
+        current_item.currency = currency unless currency.nil?
         current_item.save
       else
         current_item = LineItem.new(:quantity => quantity)
@@ -31,7 +32,7 @@ module Spree
       current_item
     end
 
-    def contains?(variant, ad_hoc_option_value_ids, product_customizations)
+    def find_line_item_by_variant(variant, ad_hoc_option_value_ids, product_customizations)
       line_items.detect do |li|
         li.variant_id == variant.id &&
           matching_configurations(li.ad_hoc_option_values,ad_hoc_option_value_ids) &&
