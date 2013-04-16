@@ -18,15 +18,15 @@
       <% if lookup.exists?(partial_name,nil,true) %>
         <%= render :partial => partial_name, :locals => {:option_type=>ahot, :class_str=>class_str} %>
       <% else %>
-        <dt><%= ot.presentation %></dt>
+        <dt><%= ot.presentation %> <small>(required)</small></dt>
         <% select_opts = {:class => class_str} %>
         <% select_opts[:prompt] = 'None' if ahot.option_values.size > 1 && ahot.option_values.none? {|ov| ov.selected? }%>
 
         <% selected_option_value = ahot.option_values.detect {|ov| ov.selected? } %>
         <dd>
           <%= select_tag "ad_hoc_option_values[#{ahot.id}]",
-           options_for_select(ad_hoc_option_value_options(ahot.option_values), 
-                              selected_option_value.present? ? 
+           options_for_select(ad_hoc_option_value_options(ahot.option_values),
+                              selected_option_value.present? ?
                                 selected_option_value.id.to_s : nil),
             select_opts
             %>
