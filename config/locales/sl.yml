@@ -1,0 +1,49 @@
+---
+sl:
+  required: "Obvezno?"
+  price_modifier: "Prilagoditev cene"
+  price_modifier_type: "Kakšen način prilagoditve cene uporabja?"
+  add_option_values: "Dodaj možnosti izbire"
+  edit_option_values: "Uredi možnosti izbire"
+  notice_messages:
+    option_value_removed: "Možnost izbire je odstranjena"
+    product_customization_type_removed: "Prilagoditev izdelka je odstranjena"
+    ad_hoc_variant_exclusion_removed: "Neveljavna kombinacija je odstranjena"
+  ad_hoc_variant_exclusion: 'Neveljavna kombinacija izbir'
+  ad_hoc_variant_exclusions: 'Nevejavne kombinacije izbir'
+  ad_hoc_variant_exclusions_unavailable: "Neveljavne kombinacije so na voljo le kadar obstaja več kot ena možnost izbire"
+  product_customization_types: 'Načini prilagoditev'
+  product_customization_type: 'Način prilagoditve izdelka'
+  customizable_product_options: 'Možnosti prilagoditve'
+  new_product_customization_type: 'Nov način prilagoditve izdelka'
+  new_customizable_product_option: 'Nova možnost prilagoditve izdelka'
+  new_ad_hoc_variant_exclusion: 'Nova neveljavna kombinacija izbir'
+  add_product_customization_type: 'Dodaj način prilagoditve izdelka'
+  add_product_customization_types: 'dodaj načine prilagoditev izdelka'
+  add_customizable_product_option: 'Dodaj prilagoditveno možnost'
+  editing_product_customization_type: 'Urejanje načina prilagoditve'
+  form_label: 'Ime polja za vnos'
+  data_type: 'Tip podatka (za validacijo)'
+  default_value: 'Privzeta vrednost'
+  ad_hoc_option_types: 'Možnosti izbir'
+  ad_hoc_option_type: 'Možnost izbire'
+  partial: 'Optionally override the default partial'
+  price_per_letter: 'Cena na črko'
+  min_length: 'Min. Length'
+  multiplier: 'Multiplier'
+  max_length: 'Max. Length'
+  max_width: 'Max. Width'
+  min_height: 'Min. Height'
+  max_height: 'Max. Height'
+  min_width: 'Min. Width'
+  min_area: 'Min. Area'
+  min_amount: 'Min. Amount'
+  max_amount: 'Max. Amount'
+  min_pricing_area: 'Min. Area to Price (possbily has smaller area, but will be priced as if this area)'
+  not_all_combinations_available: '*Note that not all option combinations are available'
+  select_variant_options: 'Options'
+  customizations: 'Customizations'
+  customize: 'Customize'
+  reset: 'Reset'
+  position_within_product: 'Display order relative to other Ad Hoc Options (low numbers are displayed first)'
+  selected_by_default: 'Selected by default?'
