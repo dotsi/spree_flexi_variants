@@ -6,7 +6,8 @@ module Spree
     def create
       variant = Variant.find(params[:line_item][:variant_id])
 
-      variant_configurations = CGI::parse params[:variant_configurations]
+      #variant_configurations = CGI::parse params[:variant_configurations]
+      variant_configurations = {}
 
       # mess w/ the params object so we can reuse our helpers ... yeah, yeah, i know this isn't perfect.  send me a pull request.  i'll refactor at some point (not today)
       params[:ad_hoc_option_values] = {}
