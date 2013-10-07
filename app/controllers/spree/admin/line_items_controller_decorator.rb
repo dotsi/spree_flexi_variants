@@ -18,7 +18,7 @@ module Spree
       end
       
       # params[:product_customizations]
-      @line_item = @order.add_variant(variant, params[:line_item][:quantity].to_i, ad_hoc_option_value_ids, product_customizations)
+      @line_item = @order.add_variant(variant, params[:line_item][:quantity].to_i, ad_hoc_option_value_ids(params[:ad_hoc_option_values]), product_customizations)
 
       if @order.save
         respond_with(@line_item) do |format|
