@@ -25,7 +25,7 @@ function legalCombination(triggering_select, current_target, target_option) {
 
   var all_vals={};
 
-  $('.ad_hoc').not(current_target).each(function(i) {
+  $('select.ad_hoc').not(current_target).each(function(i) {
     var cur_opt_arr = [];
     all_vals[$(this).attr('id')] = cur_opt_arr;
 
@@ -187,6 +187,7 @@ function possibleCombinations (options) {
 
 
 $(document).ready(function() {
+  // console.log("dom ready flexi exclusions");
   // initialize all the 'options'
   $('select.ad_hoc').each(function() {
     var options = [];
@@ -194,21 +195,26 @@ $(document).ready(function() {
 
     // find the current options, and save them in the 'data' of the select
 
+    // console.log(this);
+
     $(select).find('option').each(function() {
       options.push({value: $(this).val(), text: $(this).text()});
     });
 
     $(select).data('options', options);
+
+    // console.log(options);
   });
 
 
   // set up the change event handler when any drop down changes,
 
-  $('.ad_hoc').change(function() {
+  $('select.ad_hoc').change(function() {
     var triggering_select = this;  // take not of the the drop down that triggered this activity
+    // console.log(triggering_select);
 
     // alter the contents of every other drop down
-    $('.ad_hoc').not(triggering_select).each(function(i) {
+    $('select.ad_hoc').not(triggering_select).each(function(i) {
       //     if ($(this).val() != "") {
       //       return true; // 'continue' the loop as we want to ignore selects that have already been 'selected'
       //     }
@@ -220,7 +226,11 @@ $(document).ready(function() {
 
       var current_target=this;
 
+      // console.log(current_target);
+
       var current_target_option=$(current_target).val();
+
+      // console.log(current_target_option);
 
       var target_options = $(current_target).empty().data('options');
 
@@ -236,11 +246,16 @@ $(document).ready(function() {
       //
       // determine if legalCombination(triggering_select, current_target, current_target_option)
 
+      // console.log(target_options);
+
+      
+
       $.each(target_options, function(i) {
+        // console.log(i);
         var target_option = target_options[i];                  // e.g. s_2_0
 
         // put the 'Choose...' right back on the select
-        if (target_option.value=="") {
+        if (target_option.value == "") {
           $(current_target).append(
             $('<option>').text(target_option.text).val(target_option.value)
           );
@@ -251,11 +266,19 @@ $(document).ready(function() {
             );
           }
         }
+
+        
+
+        
       });
 
       // restore the previously selected value, if it exists
 
       $(current_target).find('option[value='+current_target_option+']').attr('selected', 'selected');
+
+      var selectBox = $(current_target).data("selectBox-selectBoxIt");
+      selectBox.refresh();
+
     }); //  .not().each()
   }); // .change()
 }); // ready
