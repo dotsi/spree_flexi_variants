@@ -71,8 +71,8 @@ function legalCombination(triggering_select, current_target, target_option) {
 
     $.each(exclusions, function(j, exclusion) {
 
-      /* console.log('exclusion[' + $(triggering_select).attr('id') +']=>' + exclusion[$(triggering_select).attr('id')] +
-         ',exclusion[' + $(current_target).attr('id') + ']=>' + exclusion[$(current_target).attr('id')]);*/
+       // console.log('exclusion[' + $(triggering_select).attr('id') +']=>' + exclusion[$(triggering_select).attr('id')] +
+       //   ',exclusion[' + $(current_target).attr('id') + ']=>' + exclusion[$(current_target).attr('id')]);
 
       // test the 'outter' two drop downs
       if ((exclusion[$(triggering_select).attr('id')] == $(triggering_select).val() || exclusion[$(triggering_select).attr('id')] == "*") && (
@@ -102,10 +102,10 @@ function legalCombination(triggering_select, current_target, target_option) {
 
         // TODO account for nil values in exclusions
 
-        /*console.log('exclusion[' + $(triggering_select).attr('id') +']=>' +
+        console.log('exclusion[' + $(triggering_select).attr('id') +']=>' +
           exclusion[$(triggering_select).attr('id')] +
           ',exclusion[' + $(current_target).attr('id') + ']=>' + exclusion[$(current_target).attr('id')]);
-        */
+        
         // test the 'outter' two drop downs
 
 
